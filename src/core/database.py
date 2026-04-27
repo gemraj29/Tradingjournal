@@ -3,7 +3,8 @@
 from collections.abc import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from sqlalchemy.orm import DeclarativeBase
+# Import Base from the infrastructure layer to ensure a single declarative base
+from src.infrastructure.persistence.models import Base
 
 from .config import settings
 
@@ -11,8 +12,10 @@ engine = create_async_engine(settings.database_url, echo=False, pool_size=10, ma
 SessionLocal = async_sessionmaker(engine, expire_on_commit=False)
 
 
-class Base(DeclarativeBase):
-    pass
+# The Base class is now imported from src.infrastructure.persistence.models
+# and should not be redefined here.
+# class Base(DeclarativeBase):
+#     pass
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:

@@ -10,7 +10,8 @@ import os
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
-from sqlalchemy.orm import declarative_base
+# Removed declarative_base as Base is now defined in models.py
+
 
 # Environment variable names for database configuration
 DB_HOST_ENV = "POSTGRES_HOST"
@@ -28,7 +29,7 @@ def get_database_url() -> str:
         ValueError: If any required database environment variable is not set.
 
     Returns:
-        str: The constructed database URL.
+        str: The constructed database URL using psycopg2 driver.
     """
     db_host = os.getenv(DB_HOST_ENV)
     db_port = os.getenv(DB_PORT_ENV)
@@ -48,7 +49,7 @@ def get_database_url() -> str:
         if var_value is None:
             raise ValueError(f"Environment variable '{var_name}' is not set.")
 
-    # Using psycopg2 as the driver for PostgreSQL
+    # Using psycopg2 as the driver for PostgreSQL for synchronous operations
     return (
         f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:"
         f"{db_port}/{db_name}"
@@ -57,10 +58,10 @@ def get_database_url() -> str:
 
 def get_engine() -> Engine:
     """
-    Creates and returns a SQLAlchemy engine instance.
+    Creates and returns a SQLAlchemy engine instance for synchronous operations.
 
     The engine is configured using the database URL obtained from
-    `get_database_url()`.
+    `get_database_url()`. This engine is suitable for tools like Alembic.
 
     Returns:
         Engine: A SQLAlchemy engine connected to the PostgreSQL database.
@@ -71,5 +72,5 @@ def get_engine() -> Engine:
     return engine
 
 
-# Base class for declarative models
-Base = declarative_base()
+# Base class for declarative models is now imported from models.py
+# Base = declarative_base()
