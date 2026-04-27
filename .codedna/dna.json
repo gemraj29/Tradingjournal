@@ -1,0 +1,105 @@
+{
+  "id": "14387b4a55b1",
+  "name": "DesignATradingjournal",
+  "version": "0.1.0",
+  "description": "Design a Tradingjournal app which can load my fidelity trade history on options stocks futures and generate dashboard.I tend to have daily monthly weekly calenderview with profits and number of trades. While trading I tend to loose price when averaging options and close to expire I roll and due to average cost of option and rolling I don’t know which price I bought it . I should be able to track this in the app. I want to know overall how much I earned in trading and how much money I lost and add personal tags to trades so I don’t repeat same mistakes for now it will load csv files and create this.Use glassmorphics beautiful ui design with light theme ",
+  "domain": "general",
+  "tech_stack": {
+    "language": "Python",
+    "frontend": null,
+    "backend": "FastAPI",
+    "database": "PostgreSQL",
+    "cache": null,
+    "queue": null,
+    "search": null,
+    "infra": "Docker + Docker Compose",
+    "testing": "pytest",
+    "auth": "JWT",
+    "extras": {}
+  },
+  "conventions": {
+    "naming_functions": "snake_case",
+    "naming_classes": "PascalCase",
+    "naming_files": "snake_case",
+    "naming_constants": "UPPER_SNAKE_CASE",
+    "naming_components": "PascalCase",
+    "max_line_length": 88,
+    "indent": "4 spaces",
+    "error_handling": "result_type",
+    "logging_style": "structured",
+    "testing_style": "pytest",
+    "doc_style": "google",
+    "api_style": "rest_openapi",
+    "state_management": null,
+    "css_approach": null
+  },
+  "architecture": {
+    "pattern": "clean",
+    "layers": [
+      {
+        "name": "domain",
+        "description": "Pure business logic — no frameworks, no I/O",
+        "allowed_imports": [],
+        "forbidden_imports": [
+          "fastapi",
+          "sqlalchemy",
+          "redis",
+          "httpx"
+        ],
+        "path_pattern": "src/*/domain/**"
+      },
+      {
+        "name": "application",
+        "description": "Use-case orchestration — calls domain, ports outward",
+        "allowed_imports": [
+          "domain"
+        ],
+        "forbidden_imports": [
+          "fastapi",
+          "sqlalchemy"
+        ],
+        "path_pattern": "src/*/application/**"
+      },
+      {
+        "name": "infrastructure",
+        "description": "Adapters: DB, HTTP clients, message brokers",
+        "allowed_imports": [
+          "domain",
+          "application"
+        ],
+        "forbidden_imports": [],
+        "path_pattern": "src/*/infrastructure/**"
+      },
+      {
+        "name": "presentation",
+        "description": "API routes, serialisation, auth middleware",
+        "allowed_imports": [
+          "application",
+          "infrastructure"
+        ],
+        "forbidden_imports": [],
+        "path_pattern": "src/*/presentation/**"
+      }
+    ],
+    "feature_based": true,
+    "monorepo": false
+  },
+  "design_system": null,
+  "module_contexts": {},
+  "tasks": [],
+  "current_task_id": null,
+  "llm_provider": "google",
+  "llm_model": "gemini/gemini-2.5-flash",
+  "token_budget_per_task": 6000,
+  "context_token_limit": 16000,
+  "created_at": "2026-04-27T21:09:46.916453+00:00",
+  "updated_at": "2026-04-27T21:09:46.921577+00:00",
+  "git_repo_url": null,
+  "design_files": [],
+  "design_code_files": [],
+  "design_html_files": [],
+  "workflow_files": [],
+  "user_notes": "Design a Tradingjournal app which can load my fidelity trade history on options stocks futures and generate dashboard.I tend to have daily monthly weekly calenderview with profits and number of trades. While trading I tend to loose price when averaging options and close to expire I roll and due to average cost of option and rolling I don’t know which price I bought it . I should be able to track this in the app. I want to know overall how much I earned in trading and how much money I lost and add personal tags to trades so I don’t repeat same mistakes for now it will load csv files and create this.Use glassmorphics beautiful ui design with light theme ",
+  "archetype_id": null,
+  "ui_style_id": null
+}
