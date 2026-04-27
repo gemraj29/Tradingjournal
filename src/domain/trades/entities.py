@@ -45,16 +45,17 @@ class Trade(BaseModel):
                                               single leg.
         profit_loss (confloat | None): The calculated profit or loss for the trade.
                                        None if not yet calculated or trade is open.
-        tags (list[str]): A list of personal tags for the trade.
-        notes (str | None): Any additional notes or comments about the trade.
+        notes (str | None): Additional notes about the trade.
+        account_id (uuid.UUID | None): ID of the associated trading account.
+        import_id (uuid.UUID | None): ID of the import source for this trade.
     """
-    id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                          description="Unique trade identifier")
-    symbol: str = Field(..., min_length=1,
-                        description="Ticker symbol or asset identifier")
+
+    id: uuid.UUID = Field(
+        default_factory=uuid.uuid4, description="Unique identifier for the trade"
+    )
+    symbol: str = Field(..., min_length=1, description="Ticker symbol of the asset")
     asset_type: AssetType = Field(..., description="Type of asset traded")
-    trade_type: TradeType = Field(...,
-                                  description="Type of transaction (Buy/Sell)")
+    trade_type: TradeType = Field(..., description="Type of transaction (Buy/Sell)")
     quantity: PositiveInt = Field(..., description="Number of units traded")
     entry_price: confloat(gt=0) = Field(
         ..., description="Price at which the trade was entered"
@@ -71,10 +72,14 @@ class Trade(BaseModel):
     profit_loss: confloat | None = Field(
         None, description="Calculated profit or loss for the trade (if closed)"
     )
-    tags: list[str] = Field(default_factory=list,
-                            description="Personal tags for the trade")
     notes: str | None = Field(None,
                               description="Additional notes about the trade")
+    account_id: uuid.UUID | None = Field(
+        None, description="ID of the associated trading account"
+    )
+    import_id: uuid.UUID | None = Field(
+        None, description="ID of the import source for this trade"
+    )
 
     class Config:
         """Pydantic model configuration."""
@@ -91,7 +96,32 @@ class Trade(BaseModel):
                 "trade_date": "2023-01-15T09:30:00Z",
                 "exit_date": "2023-01-20T16:00:00Z",
                 "profit_loss": 52.50,
-                "tags": ["swing_trade", "tech_stock"],
                 "notes": "Bought on dip, sold for quick profit."
             }
         }
+
+
+class TradeTag(BaseModel):
+    """
+    Represents an association between a Trade and a Tag.
+
+    This entity facilitates a many-to-many relationship, allowing a single
+    trade to have multiple tags and a single tag to be applied to multiple
+    trades.
+    """
+    id: uuid.UUID = Field(default_factory=uuid.uuid4,
+                          description="Unique identifier for the trade-tag association")
+    trade_id: uuid.UUID = Field(..., description="ID of the associated trade")
+    tag_id: uuid.UUID = Field(..., description="ID of the associated tag")
+
+    class Config:
+        """Pydantic model configuration."""
+        from_attributes = True
+        json_schema_extra = {
+            "example": {
+                "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+                "trade_id": "123e4567-e89b-12d3-a456-426614174000",
+                "tag_id": "fedcba98-7654-3210-fedc-ba9876543210"
+            }
+        }
+
