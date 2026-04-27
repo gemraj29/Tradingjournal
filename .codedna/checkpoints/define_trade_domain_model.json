@@ -1,0 +1,6 @@
+{
+  "task_id": "define_trade_domain_model",
+  "description": "Define the `Trade` entity with core attributes.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

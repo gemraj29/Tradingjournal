@@ -1,0 +1,827 @@
+[
+  {
+    "id": "scaffold_project_structure",
+    "description": "Create base project directories and `pyproject.toml`.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [],
+    "target_modules": [
+      "."
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352367+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_docker_infra",
+    "description": "Set up `Dockerfile` for FastAPI and `docker-compose.yml` for app+db.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "."
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352418+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_fastapi_app",
+    "description": "Create main FastAPI application instance and entry point.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "presentation"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352453+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_logging_config",
+    "description": "Implement structured logging configuration for the application.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "infrastructure.logging"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352483+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_error_handling",
+    "description": "Define base `Result` type for consistent error handling.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.shared"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352510+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_pytest_setup",
+    "description": "Configure `pytest` for unit and integration tests.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "tests"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352536+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_precommit_hooks",
+    "description": "Add `black`, `isort`, `flake8` to `pre-commit` configuration.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "."
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352562+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_db_config",
+    "description": "Define database connection settings and SQLAlchemy engine.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "infrastructure.persistence"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352588+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_trade_domain_model",
+    "description": "Define the `Trade` entity with core attributes.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.trades"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352670+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_tag_domain_model",
+    "description": "Define the `Tag` entity for categorizing trades.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.tags"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352702+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_account_domain_model",
+    "description": "Define the `Account` entity for tracking trading accounts.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.accounts"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352731+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_trade_history_domain_model",
+    "description": "Define `TradeHistory` for raw imported trade data.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.imports"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352789+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_dashboard_summary_domain_model",
+    "description": "Define `DashboardSummary` for aggregated dashboard views.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_project_structure"
+    ],
+    "target_modules": [
+      "domain.dashboard"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352819+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_ci_pipeline",
+    "description": "Create a basic GitHub Actions workflow for CI.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_pytest_setup",
+      "scaffold_precommit_hooks"
+    ],
+    "target_modules": [
+      ".github.workflows"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353554+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_alembic_setup",
+    "description": "Initialize Alembic for database migrations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_db_config"
+    ],
+    "target_modules": [
+      "infrastructure.persistence"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352617+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_base_orm_model",
+    "description": "Create a base SQLAlchemy ORM model with common features.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_db_config"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.models"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352644+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_trade_repository_interface",
+    "description": "Define abstract interface for `Trade` persistence operations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_domain_model"
+    ],
+    "target_modules": [
+      "application.repositories"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353008+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_calculate_pnl_use_case",
+    "description": "Define interface for calculating trade PnL.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_domain_model"
+    ],
+    "target_modules": [
+      "application.use_cases"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353206+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_trade_tag_domain_model",
+    "description": "Define the `TradeTag` association for many-to-many relationships.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_domain_model",
+      "define_tag_domain_model"
+    ],
+    "target_modules": [
+      "domain.trades"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352760+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_tag_repository_interface",
+    "description": "Define abstract interface for `Tag` persistence operations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_tag_domain_model"
+    ],
+    "target_modules": [
+      "application.repositories"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353040+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_tag_trade_use_case",
+    "description": "Define interface for associating tags with trades.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_domain_model",
+      "define_tag_domain_model"
+    ],
+    "target_modules": [
+      "application.use_cases"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353238+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_account_repository_interface",
+    "description": "Define abstract interface for `Account` persistence operations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_account_domain_model"
+    ],
+    "target_modules": [
+      "application.repositories"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353067+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_import_trades_use_case",
+    "description": "Define interface for importing trade data from CSV.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_domain_model",
+      "define_trade_history_domain_model"
+    ],
+    "target_modules": [
+      "application.use_cases"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353182+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "define_get_dashboard_summary_use_case",
+    "description": "Define interface for retrieving dashboard summary data.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "define_dashboard_summary_domain_model"
+    ],
+    "target_modules": [
+      "application.use_cases"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353267+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_trade_orm_model",
+    "description": "Create SQLAlchemy ORM model for `Trade` entity.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_base_orm_model",
+      "define_trade_domain_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.models"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352852+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_tag_orm_model",
+    "description": "Create SQLAlchemy ORM model for `Tag` entity.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_base_orm_model",
+      "define_tag_domain_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.models"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352881+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_account_orm_model",
+    "description": "Create SQLAlchemy ORM model for `Account` entity.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_base_orm_model",
+      "define_account_domain_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.models"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352909+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_trade_tag_orm_model",
+    "description": "Create SQLAlchemy ORM model for `TradeTag` association.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_base_orm_model",
+      "define_trade_tag_domain_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.models"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352941+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_postgres_trade_repository",
+    "description": "Implement `TradeRepository` using SQLAlchemy for PostgreSQL.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_trade_repository_interface",
+      "scaffold_trade_orm_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.postgres"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353096+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_postgres_tag_repository",
+    "description": "Implement `TagRepository` using SQLAlchemy for PostgreSQL.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_tag_repository_interface",
+      "scaffold_tag_orm_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.postgres"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353125+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_postgres_account_repository",
+    "description": "Implement `AccountRepository` using SQLAlchemy for PostgreSQL.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_account_repository_interface",
+      "scaffold_account_orm_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.postgres"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353153+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_initial_migration",
+    "description": "Generate and apply the first Alembic migration for core tables.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_alembic_setup",
+      "scaffold_trade_orm_model",
+      "scaffold_tag_orm_model",
+      "scaffold_account_orm_model",
+      "scaffold_trade_tag_orm_model"
+    ],
+    "target_modules": [
+      "infrastructure.persistence.migrations"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.352982+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_import_trades_use_case",
+    "description": "Implement basic CSV import logic for trades.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_import_trades_use_case",
+      "implement_postgres_trade_repository"
+    ],
+    "target_modules": [
+      "application.use_cases.imports"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353296+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_calculate_pnl_use_case",
+    "description": "Implement basic PnL calculation for trades.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_calculate_pnl_use_case",
+      "implement_postgres_trade_repository"
+    ],
+    "target_modules": [
+      "application.use_cases.trades"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353329+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_get_dashboard_summary_use_case",
+    "description": "Implement basic dashboard aggregation logic.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_get_dashboard_summary_use_case",
+      "implement_postgres_trade_repository"
+    ],
+    "target_modules": [
+      "application.use_cases.dashboard"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353394+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "implement_tag_trade_use_case",
+    "description": "Implement logic to tag a trade with existing or new tags.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "define_tag_trade_use_case",
+      "implement_postgres_trade_repository",
+      "implement_postgres_tag_repository"
+    ],
+    "target_modules": [
+      "application.use_cases.tags"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353365+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_trades_api_router",
+    "description": "Create FastAPI router for trade operations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_fastapi_app",
+      "implement_import_trades_use_case",
+      "implement_calculate_pnl_use_case"
+    ],
+    "target_modules": [
+      "presentation.api.routers"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353426+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_dashboard_api_router",
+    "description": "Create FastAPI router for dashboard data.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_fastapi_app",
+      "implement_get_dashboard_summary_use_case"
+    ],
+    "target_modules": [
+      "presentation.api.routers"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353490+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "scaffold_tags_api_router",
+    "description": "Create FastAPI router for tag operations.",
+    "task_type": "scaffold",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_fastapi_app",
+      "implement_tag_trade_use_case"
+    ],
+    "target_modules": [
+      "presentation.api.routers"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353458+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  },
+  {
+    "id": "register_api_routers",
+    "description": "Register all API routers with the main FastAPI app.",
+    "task_type": "implement",
+    "status": "pending",
+    "dependencies": [
+      "scaffold_fastapi_app",
+      "scaffold_trades_api_router",
+      "scaffold_tags_api_router",
+      "scaffold_dashboard_api_router"
+    ],
+    "target_modules": [
+      "presentation.api"
+    ],
+    "files_created": [],
+    "files_modified": [],
+    "checkpoint_path": null,
+    "tokens_used": 0,
+    "created_at": "2026-04-27T21:10:20.353526+00:00",
+    "completed_at": null,
+    "error": null,
+    "git_commit": null
+  }
+]

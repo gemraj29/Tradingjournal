@@ -1,0 +1,6 @@
+{
+  "task_id": "define_account_domain_model",
+  "description": "Define the `Account` entity for tracking trading accounts.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

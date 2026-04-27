@@ -1,0 +1,6 @@
+{
+  "task_id": "register_api_routers",
+  "description": "Register all API routers with the main FastAPI app.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

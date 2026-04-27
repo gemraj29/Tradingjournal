@@ -1,0 +1,6 @@
+{
+  "task_id": "implement_import_trades_use_case",
+  "description": "Implement basic CSV import logic for trades.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

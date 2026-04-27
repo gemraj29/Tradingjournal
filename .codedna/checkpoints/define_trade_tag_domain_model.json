@@ -1,0 +1,6 @@
+{
+  "task_id": "define_trade_tag_domain_model",
+  "description": "Define the `TradeTag` association for many-to-many relationships.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

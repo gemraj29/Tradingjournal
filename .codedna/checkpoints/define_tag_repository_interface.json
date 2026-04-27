@@ -1,0 +1,6 @@
+{
+  "task_id": "define_tag_repository_interface",
+  "description": "Define abstract interface for `Tag` persistence operations.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

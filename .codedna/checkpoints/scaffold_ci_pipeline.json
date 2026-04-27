@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_ci_pipeline",
+  "description": "Create a basic GitHub Actions workflow for CI.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

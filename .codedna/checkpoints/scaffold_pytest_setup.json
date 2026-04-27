@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_pytest_setup",
+  "description": "Configure `pytest` for unit and integration tests.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

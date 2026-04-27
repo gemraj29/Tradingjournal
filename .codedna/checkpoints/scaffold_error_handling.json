@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_error_handling",
+  "description": "Define base `Result` type for consistent error handling.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

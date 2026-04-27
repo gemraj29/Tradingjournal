@@ -1,0 +1,6 @@
+{
+  "task_id": "implement_get_dashboard_summary_use_case",
+  "description": "Implement basic dashboard aggregation logic.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

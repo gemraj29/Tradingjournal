@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_precommit_hooks",
+  "description": "Add `black`, `isort`, `flake8` to `pre-commit` configuration.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "implement_tag_trade_use_case",
+  "description": "Implement logic to tag a trade with existing or new tags.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_project_structure",
+  "description": "Create base project directories and `pyproject.toml`.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

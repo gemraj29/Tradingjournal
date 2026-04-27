@@ -1,0 +1,6 @@
+{
+  "task_id": "define_get_dashboard_summary_use_case",
+  "description": "Define interface for retrieving dashboard summary data.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

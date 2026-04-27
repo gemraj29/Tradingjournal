@@ -1,0 +1,5 @@
+MODULE: infrastructure.logging
+PATH: src/infrastructure/logging/logging_config.py
+PURPOSE: Provides structured JSON logging configuration and a custom JSON formatter.
+INTERFACES: JsonFormatter.format(record), configure_logging(level)
+DEPENDS_ON:

@@ -1,0 +1,6 @@
+{
+  "task_id": "define_dashboard_summary_domain_model",
+  "description": "Define `DashboardSummary` for aggregated dashboard views.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_db_config",
+  "description": "Define database connection settings and SQLAlchemy engine.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

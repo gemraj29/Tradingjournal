@@ -1,0 +1,6 @@
+{
+  "task_id": "define_calculate_pnl_use_case",
+  "description": "Define interface for calculating trade PnL.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

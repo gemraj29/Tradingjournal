@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_base_orm_model",
+  "description": "Create a base SQLAlchemy ORM model with common features.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

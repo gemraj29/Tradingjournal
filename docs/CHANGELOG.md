@@ -1,0 +1,45 @@
+# DesignATradingjournal — Changelog
+
+_Generated 2026-04-27_
+
+- `a68f3694` feat(register_api_routers): Register all API routers with the main FastAPI app.
+- `ee935241` feat(scaffold_tags_api_router): Create FastAPI router for tag operations.
+- `c06d1ed9` feat(scaffold_dashboard_api_router): Create FastAPI router for dashboard data.
+- `740f9b58` feat(scaffold_trades_api_router): Create FastAPI router for trade operations.
+- `77258175` feat(implement_tag_trade_use_case): Implement logic to tag a trade with existing or new tags.
+- `a4e02a96` feat(implement_get_dashboard_summary_use_case): Implement basic dashboard aggregation logic.
+- `ec439b9d` feat(implement_calculate_pnl_use_case): Implement basic PnL calculation for trades.
+- `92ed6ece` feat(implement_import_trades_use_case): Implement basic CSV import logic for trades.
+- `4a69ffa9` feat(scaffold_initial_migration): Generate and apply the first Alembic migration for core tables.
+- `9acf84af` feat(implement_postgres_account_repository): Implement `AccountRepository` using SQLAlchemy for PostgreSQL.
+- `49ab153e` feat(implement_postgres_trade_repository): Implement `TradeRepository` using SQLAlchemy for PostgreSQL.
+- `ea2c80cf` feat(scaffold_trade_tag_orm_model): Create SQLAlchemy ORM model for `TradeTag` association.
+- `ab41fa03` feat(scaffold_account_orm_model): Create SQLAlchemy ORM model for `Account` entity.
+- `94b23a28` feat(define_import_trades_use_case): Define interface for importing trade data from CSV.
+- `4315f89c` feat(define_tag_trade_use_case): Define interface for associating tags with trades.
+- `3fc0776e` feat(define_calculate_pnl_use_case): Define interface for calculating trade PnL.
+- `a284bd53` feat(implement_postgres_tag_repository): Implement `TagRepository` using SQLAlchemy for PostgreSQL.
+- `9e3f3c6c` feat(scaffold_tag_orm_model): Create SQLAlchemy ORM model for `Tag` entity.
+- `621901f4` feat(scaffold_trade_orm_model): Create SQLAlchemy ORM model for `Trade` entity.
+- `8c998751` feat(define_get_dashboard_summary_use_case): Define interface for retrieving dashboard summary data.
+- `a4b09334` feat(define_account_repository_interface): Define abstract interface for `Account` persistence operations.
+- `15ac3054` feat(define_tag_repository_interface): Define abstract interface for `Tag` persistence operations.
+- `e4fa8b4b` feat(define_trade_tag_domain_model): Define the `TradeTag` association for many-to-many relationships.
+- `7f4edcef` feat(define_trade_repository_interface): Define abstract interface for `Trade` persistence operations.
+- `cf2ef126` feat(scaffold_base_orm_model): Create a base SQLAlchemy ORM model with common features.
+- `1d2e4690` feat(scaffold_alembic_setup): Initialize Alembic for database migrations.
+- `d8e6941a` feat(scaffold_ci_pipeline): Create a basic GitHub Actions workflow for CI.
+- `aaabf0e6` feat(define_dashboard_summary_domain_model): Define `DashboardSummary` for aggregated dashboard views.
+- `d0806750` feat(define_trade_history_domain_model): Define `TradeHistory` for raw imported trade data.
+- `363ae3f0` feat(define_account_domain_model): Define the `Account` entity for tracking trading accounts.
+- `0e67b127` feat(define_tag_domain_model): Define the `Tag` entity for categorizing trades.
+- `aecea8f2` feat(define_trade_domain_model): Define the `Trade` entity with core attributes.
+- `c765c97e` feat(scaffold_db_config): Define database connection settings and SQLAlchemy engine.
+- `837bf0f2` feat(scaffold_precommit_hooks): Add `black`, `isort`, `flake8` to `pre-commit` configuration.
+- `7718ae79` feat(scaffold_pytest_setup): Configure `pytest` for unit and integration tests.
+- `fef756c9` feat(scaffold_error_handling): Define base `Result` type for consistent error handling.
+- `b6bc1ab7` feat(scaffold_logging_config): Implement structured logging configuration for the application.
+- `a871f8f6` feat(scaffold_fastapi_app): Create main FastAPI application instance and entry point.
+- `87941840` feat(scaffold_docker_infra): Set up `Dockerfile` for FastAPI and `docker-compose.yml` for app+db.
+- `f1520cb5` feat(scaffold_project_structure): Create base project directories and `pyproject.toml`.
+- `aad1f6d1` chore: initial CodeDNA scaffold

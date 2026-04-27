@@ -1,0 +1,6 @@
+{
+  "task_id": "implement_postgres_tag_repository",
+  "description": "Implement `TagRepository` using SQLAlchemy for PostgreSQL.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

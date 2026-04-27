@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_account_orm_model",
+  "description": "Create SQLAlchemy ORM model for `Account` entity.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

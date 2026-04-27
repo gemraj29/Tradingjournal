@@ -1,0 +1,6 @@
+{
+  "task_id": "define_tag_trade_use_case",
+  "description": "Define interface for associating tags with trades.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

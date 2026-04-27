@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_fastapi_app",
+  "description": "Create main FastAPI application instance and entry point.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_trade_tag_orm_model",
+  "description": "Create SQLAlchemy ORM model for `TradeTag` association.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

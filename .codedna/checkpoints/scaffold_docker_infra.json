@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_docker_infra",
+  "description": "Set up `Dockerfile` for FastAPI and `docker-compose.yml` for app+db.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

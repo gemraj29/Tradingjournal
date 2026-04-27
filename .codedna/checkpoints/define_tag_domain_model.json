@@ -1,0 +1,6 @@
+{
+  "task_id": "define_tag_domain_model",
+  "description": "Define the `Tag` entity for categorizing trades.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

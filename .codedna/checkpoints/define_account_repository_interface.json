@@ -1,0 +1,6 @@
+{
+  "task_id": "define_account_repository_interface",
+  "description": "Define abstract interface for `Account` persistence operations.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

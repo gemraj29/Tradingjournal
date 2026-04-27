@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_dashboard_api_router",
+  "description": "Create FastAPI router for dashboard data.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

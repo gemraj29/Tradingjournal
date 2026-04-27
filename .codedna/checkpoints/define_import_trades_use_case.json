@@ -1,0 +1,6 @@
+{
+  "task_id": "define_import_trades_use_case",
+  "description": "Define interface for importing trade data from CSV.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

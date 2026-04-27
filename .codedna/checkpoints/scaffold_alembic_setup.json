@@ -1,0 +1,6 @@
+{
+  "task_id": "scaffold_alembic_setup",
+  "description": "Initialize Alembic for database migrations.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

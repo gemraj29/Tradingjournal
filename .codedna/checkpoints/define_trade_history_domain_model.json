@@ -1,0 +1,6 @@
+{
+  "task_id": "define_trade_history_domain_model",
+  "description": "Define `TradeHistory` for raw imported trade data.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}

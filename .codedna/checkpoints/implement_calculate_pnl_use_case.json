@@ -1,0 +1,6 @@
+{
+  "task_id": "implement_calculate_pnl_use_case",
+  "description": "Implement basic PnL calculation for trades.",
+  "system_tokens": 371,
+  "stage": "pre_llm"
+}
