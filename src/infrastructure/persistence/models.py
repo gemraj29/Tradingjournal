@@ -22,7 +22,10 @@ class Base(DeclarativeBase):
 
 
 # Import all ORM models here to ensure they are registered with Base.metadata
+from .models.tag_model import TagModel
+
 # Example:
 # from .trade_models import TradeModel
-# from .tag_models import TagModel
 # As models are created, add their imports here.
+# from .tag_models import TagModel # This was a placeholder, now replaced by actual import
+
