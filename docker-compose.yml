@@ -1,22 +1,36 @@
-version: "3.9"
+version: '3.8'
+
 services:
-  postgres:
+  db:
     image: postgres:16-alpine
+    restart: always
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-appdb}
-      POSTGRES_USER: ${POSTGRES_USER:-app}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
-    ports: ["5432:5432"]
-    volumes: [postgres_data:/var/lib/postgresql/data]
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U app"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-  redis:
-    image: redis:7-alpine
-    ports: ["6379:6379"]
-    command: redis-server --save 60 1 --loglevel warning
+      POSTGRES_DB: tradingjournal_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+  app:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      # Database connection string for SQLAlchemy + asyncpg
+      DATABASE_URL: postgresql+asyncpg://user:password@db:5432/tradingjournal_db
+      UVICORN_HOST: 0.0.0.0
+      UVICORN_PORT: 8000
+    depends_on:
+      - db
+    networks:
+      - app_network
 
 volumes:
-  postgres_data:
+  db_data:
+
+networks:
+  app_network:
+    driver: bridge
