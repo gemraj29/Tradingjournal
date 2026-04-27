@@ -1,43 +1,27 @@
-"""
-SQLAlchemy ORM model for the TradeTag association table.
+from sqlalchemy import Column, ForeignKey, Integer
+from sqlalchemy.orm import relationship
 
-This model defines the many-to-many relationship between TradeModel and TagModel.
-"""
-
-import uuid
-
-from sqlalchemy import Column, ForeignKey
-from sqlalchemy.dialects.postgresql import UUID
-
-from src.infrastructure.persistence.models import Base
+from src.infrastructure.persistence.models.base import Base, TimestampMixin
 
 
-class TradeTagModel(Base):
+class TradeTagModel(TimestampMixin, Base):
     """
-    Represents the association table between trades and tags.
-
-    This table links `TradeModel` and `TagModel` to implement a many-to-many
-    relationship, allowing a trade to have multiple tags and a tag to be
-    associated with multiple trades.
+    SQLAlchemy association model for many-to-many relationship between trades and tags.
     """
 
     __tablename__ = "trade_tags"
 
     trade_id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("trades.id", ondelete="CASCADE"),
-        primary_key=True,
-        default=uuid.uuid4,
-        nullable=False,
-        index=True,
+        Integer, ForeignKey("trades.id", ondelete="CASCADE"), primary_key=True
     )
     tag_id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("tags.id", ondelete="CASCADE"),
-        primary_key=True,
-        default=uuid.uuid4,
-        nullable=False,
-        index=True,
+        Integer, ForeignKey("tags.id", ondelete="CASCADE"), primary_key=True
     )
 
+    trade = relationship("TradeModel", back_populates="trade_tags")
+    tag = relationship("TagModel", back_populates="trade_tags")
 
+    def __repr__(self):
+        return (
+            f"<TradeTagModel(trade_id={self.trade_id}, tag_id={self.tag_id})>"
+        )
