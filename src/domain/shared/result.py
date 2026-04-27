@@ -27,4 +27,4 @@ class Error:
         return hash((self.code, self.message, frozenset(self.details.items())))
 
     def __str__(self) -> str:
-        return f"Error(
+        details_str = (
