@@ -1,6 +1,15 @@
 import asyncio
 import os
+import sys
 from logging.config import fileConfig
+from pathlib import Path
+
+# Ensure the project root (where `src/` lives) is on sys.path so that
+# `from src.infrastructure...` imports work regardless of where alembic
+# is invoked from.
+_project_root = Path(__file__).resolve().parents[4]
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool

@@ -41,6 +41,6 @@ async def get_trade_by_id(trade_id: str) -> dict:
     Args:
         trade_id: The unique identifier of the trade.
     """
-    logger.info("Received request to get trade by ID", trade_id=trade_id)
+    logger.info("Received request to get trade by ID: %s", trade_id)
     # Placeholder for future implementation
     return {"id": trade_id, "symbol": "MSFT", "type": "SELL", "quantity": 5}

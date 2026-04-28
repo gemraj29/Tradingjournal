@@ -1,7 +1,9 @@
+"""Abstract trade repository interface."""
+
 from abc import ABC, abstractmethod
 from typing import List
 
-from src.domain.shared.result import Result, Error
+from src.domain.shared.result import Error, Result
 from src.domain.trades.entities import Trade
 
 
@@ -14,8 +16,8 @@ class TradeRepository(ABC):
         Retrieves all trades from the repository.
 
         Returns:
-            Result[List[Trade], Error]: A Result containing a list of Trade
-            entities on success, or an Error on failure.
+            Result containing a list of Trade entities on success,
+            or an Error on failure.
         """
         raise NotImplementedError
 
@@ -27,25 +29,39 @@ class TradeRepository(ABC):
         Retrieves trades associated with a specific account ID.
 
         Args:
-            account_id (str): The ID of the account.
+            account_id: The ID of the account.
 
         Returns:
-            Result[List[Trade], Error]: A Result containing a list of Trade
-            entities on success, or an Error on failure.
+            Result containing a list of Trade entities on success,
+            or an Error on failure.
         """
         raise NotImplementedError
 
     @abstractmethod
     async def add_trade(self, trade: Trade) -> Result[Trade, Error]:
         """
-        Adds a new trade to the repository.
+        Adds a single trade to the repository.
 
         Args:
-            trade (Trade): The trade entity to add.
+            trade: The Trade entity to add.
 
         Returns:
-            Result[Trade, Error]: A Result containing the added Trade entity
-            on success, or an Error on failure.
+            Result containing the added Trade entity on success,
+            or an Error on failure.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    async def add_trades(self, trades: List[Trade]) -> Result[int, Error]:
+        """
+        Bulk-inserts a list of trades.
+
+        Args:
+            trades: List of Trade entities to add.
+
+        Returns:
+            Result containing the number of trades inserted on success,
+            or an Error on failure.
         """
         raise NotImplementedError
 
@@ -55,11 +71,11 @@ class TradeRepository(ABC):
         Updates an existing trade in the repository.
 
         Args:
-            trade (Trade): The trade entity to update.
+            trade: The Trade entity to update.
 
         Returns:
-            Result[Trade, Error]: A Result containing the updated Trade entity
-            on success, or an Error on failure.
+            Result containing the updated Trade entity on success,
+            or an Error on failure.
         """
         raise NotImplementedError
 
@@ -69,8 +85,10 @@ class TradeRepository(ABC):
         Deletes a trade from the repository by its ID.
 
         Args:
-            trade_id (str): The ID of the trade to delete.
+            trade_id: The ID of the trade to delete.
 
         Returns:
-            Result[bool, Error]: A Result indicating success (True) or failure
-            (False) on deletion, or an Error on failure.
+            Result containing True on successful deletion,
+            or an Error on failure.
+        """
+        raise NotImplementedError

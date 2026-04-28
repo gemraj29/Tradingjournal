@@ -93,7 +93,8 @@ cmd_migrate() {
 
   load_env
   info "Running Alembic migrations (upgrade head)..."
-  alembic upgrade head
+  # PYTHONPATH=. ensures `src` is importable when alembic loads env.py
+  PYTHONPATH="$(pwd)" alembic upgrade head
   success "Migrations applied."
 }
 
