@@ -28,7 +28,7 @@ async def test_get_trades_returns_list(client: AsyncClient):
     resp = await client.get("/trades/")
     assert resp.status_code == 200
     body = resp.json()
-    assert isinstance(body, (list, dict))
+    assert isinstance(body, list | dict)
 
 
 @pytest.mark.asyncio
