@@ -1,6 +1,3 @@
-from datetime import datetime
-from typing import Any
-
 from sqlalchemy import Column, DateTime
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.sql import func
@@ -19,9 +16,7 @@ class TimestampMixin:
     Mixin for adding created_at and updated_at columns to models.
     """
 
-    created_at = Column(
-        DateTime(timezone=True), default=func.now(), nullable=False
-    )
+    created_at = Column(DateTime(timezone=True), default=func.now(), nullable=False)
     updated_at = Column(
         DateTime(timezone=True),
         default=func.now(),

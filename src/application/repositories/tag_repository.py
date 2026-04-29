@@ -1,5 +1,4 @@
 import abc
-from typing import List, Optional
 from uuid import UUID
 
 from src.domain.shared.result import Error, Result
@@ -29,7 +28,7 @@ class TagRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_tag_by_id(self, tag_id: UUID) -> Result[Optional[Tag], Error]:
+    def get_tag_by_id(self, tag_id: UUID) -> Result[Tag | None, Error]:
         """
         Retrieves a single tag by its unique identifier.
 
@@ -42,9 +41,7 @@ class TagRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_all_tags(
-        self, skip: int = 0, limit: int = 100
-    ) -> Result[List[Tag], Error]:
+    def get_all_tags(self, skip: int = 0, limit: int = 100) -> Result[list[Tag], Error]:
         """
         Retrieves a list of all tags, with optional pagination.
 

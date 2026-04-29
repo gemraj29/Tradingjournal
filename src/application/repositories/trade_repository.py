@@ -1,7 +1,6 @@
 """Abstract trade repository interface."""
 
 from abc import ABC, abstractmethod
-from typing import List
 
 from src.domain.shared.result import Error, Result
 from src.domain.trades.entities import Trade
@@ -11,7 +10,7 @@ class TradeRepository(ABC):
     """Abstract base class for a trade repository."""
 
     @abstractmethod
-    async def get_all_trades(self) -> Result[List[Trade], Error]:
+    async def get_all_trades(self) -> Result[list[Trade], Error]:
         """
         Retrieves all trades from the repository.
 
@@ -24,7 +23,7 @@ class TradeRepository(ABC):
     @abstractmethod
     async def get_trades_by_account(
         self, account_id: str
-    ) -> Result[List[Trade], Error]:
+    ) -> Result[list[Trade], Error]:
         """
         Retrieves trades associated with a specific account ID.
 
@@ -52,7 +51,7 @@ class TradeRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    async def add_trades(self, trades: List[Trade]) -> Result[int, Error]:
+    async def add_trades(self, trades: list[Trade]) -> Result[int, Error]:
         """
         Bulk-inserts a list of trades.
 

@@ -1,7 +1,6 @@
 """In-memory implementation of TradeRepository for initial development."""
 
 import logging
-from typing import Dict, List
 
 from src.application.repositories.trade_repository import TradeRepository
 from src.domain.shared.result import Error, Ok, Result
@@ -16,14 +15,14 @@ class InMemoryTradeRepository(TradeRepository):
     """
 
     def __init__(self) -> None:
-        self._trades: Dict[str, Trade] = {}
+        self._trades: dict[str, Trade] = {}
 
-    async def get_all_trades(self) -> Result[List[Trade], Error]:
+    async def get_all_trades(self) -> Result[list[Trade], Error]:
         return Ok(list(self._trades.values()))
 
     async def get_trades_by_account(
         self, account_id: str
-    ) -> Result[List[Trade], Error]:
+    ) -> Result[list[Trade], Error]:
         filtered = [t for t in self._trades.values() if t.account_id == account_id]
         return Ok(filtered)
 
@@ -32,7 +31,7 @@ class InMemoryTradeRepository(TradeRepository):
         logger.info("Added trade %s to in-memory store", trade.id)
         return Ok(trade)
 
-    async def add_trades(self, trades: List[Trade]) -> Result[int, Error]:
+    async def add_trades(self, trades: list[Trade]) -> Result[int, Error]:
         for trade in trades:
             self._trades[trade.id] = trade
         logger.info("Added %d trades to in-memory store", len(trades))

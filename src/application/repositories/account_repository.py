@@ -1,5 +1,4 @@
 import abc
-from typing import List, Optional
 from uuid import UUID
 
 from src.domain.accounts.entities import Account
@@ -29,9 +28,7 @@ class AccountRepository(abc.ABC):
         raise NotImplementedError
 
     @abc.abstractmethod
-    def get_account_by_id(
-        self, account_id: UUID
-    ) -> Result[Optional[Account], Error]:
+    def get_account_by_id(self, account_id: UUID) -> Result[Account | None, Error]:
         """
         Retrieves a single account by its unique identifier.
 
@@ -46,7 +43,7 @@ class AccountRepository(abc.ABC):
     @abc.abstractmethod
     def get_all_accounts(
         self, skip: int = 0, limit: int = 100
-    ) -> Result[List[Account], Error]:
+    ) -> Result[list[Account], Error]:
         """
         Retrieves a list of all accounts, with optional pagination.
 
@@ -86,4 +83,3 @@ class AccountRepository(abc.ABC):
             or an Error.
         """
         raise NotImplementedError
-

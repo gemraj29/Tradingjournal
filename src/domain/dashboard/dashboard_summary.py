@@ -18,7 +18,7 @@ class DashboardSummary(BaseModel):
     total_loss: float = Field(
         ...,
         description="The total sum of losses from all losing trades. "
-                    "This value is expected to be negative or zero.",
+        "This value is expected to be negative or zero.",
         le=0.0,
     )
     net_profit_loss: float = Field(
@@ -43,8 +43,8 @@ class DashboardSummary(BaseModel):
     win_rate: float = Field(
         ...,
         description="The percentage of winning trades out of total trades. "
-                    "Calculated as (winning_trades / total_trades) * 100. "
-                    "Returns 0.0 if total_trades is 0.",
+        "Calculated as (winning_trades / total_trades) * 100. "
+        "Returns 0.0 if total_trades is 0.",
         ge=0.0,
         le=100.0,
     )

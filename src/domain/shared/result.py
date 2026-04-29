@@ -1,6 +1,6 @@
 """Result type for explicit success/failure handling without exceptions."""
 
-from typing import Generic, TypeVar, Union
+from typing import Generic, TypeVar
 
 E = TypeVar("E")
 T = TypeVar("T")
@@ -26,10 +26,10 @@ class Result(Generic[T, E]):
     Prefer the Ok() and Err() free functions to construct instances.
     """
 
-    _value: Union[T, E]
+    _value: T | E
     _is_ok: bool
 
-    def __init__(self, value: Union[T, E], is_ok: bool) -> None:
+    def __init__(self, value: T | E, is_ok: bool) -> None:
         self._value = value
         self._is_ok = is_ok
 
@@ -81,6 +81,7 @@ class Result(Generic[T, E]):
 # ------------------------------------------------------------------
 # Module-level convenience constructors
 # ------------------------------------------------------------------
+
 
 def Ok(value: T) -> "Result[T, E]":  # noqa: N802
     """Construct a successful Result."""

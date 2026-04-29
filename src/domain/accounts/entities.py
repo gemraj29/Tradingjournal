@@ -5,7 +5,6 @@ Entities represent the core business objects with identity and lifecycle.
 """
 
 import enum
-from typing import Optional
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, Field
@@ -37,7 +36,7 @@ class Account(BaseModel):
     account_id: UUID = Field(default_factory=uuid4)
     name: str = Field(..., min_length=1, max_length=100)
     account_type: AccountType
-    description: Optional[str] = Field(None, max_length=500)
+    description: str | None = Field(None, max_length=500)
 
     class Config:
         """Pydantic configuration for the Account model."""

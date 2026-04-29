@@ -1,11 +1,14 @@
 import uuid
+
 from pydantic import BaseModel, Field
 
 
 class Tag(BaseModel):
     """Represents a tag used to categorize trades."""
 
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier for the tag.")
+    id: uuid.UUID = Field(
+        default_factory=uuid.uuid4, description="Unique identifier for the tag."
+    )
     name: str = Field(..., min_length=1, max_length=50, description="Name of the tag.")
 
     class Config:

@@ -2,7 +2,7 @@ from datetime import datetime
 from uuid import UUID, uuid4
 
 from sqlalchemy import func
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, MetaData
+from sqlalchemy.orm import DeclarativeBase, Mapped, MetaData, mapped_column
 
 
 class BaseModel(DeclarativeBase):
@@ -15,9 +15,7 @@ class BaseModel(DeclarativeBase):
     __abstract__ = True
     metadata = MetaData()
 
-    id: Mapped[UUID] = mapped_column(
-        primary_key=True, default=uuid4, index=True
-    )
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4, index=True)
     created_at: Mapped[datetime] = mapped_column(
         default=func.now(), server_default=func.now()
     )

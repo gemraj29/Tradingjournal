@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 from enum import Enum
-from typing import Optional
 from uuid import uuid4
 
 
@@ -29,8 +28,8 @@ class Trade:
     trade_date: date
     account_id: str
     profit_loss: Decimal = Decimal("0.00")
-    notes: Optional[str] = None
-    tags: Optional[list[str]] = None
+    notes: str | None = None
+    tags: list[str] | None = None
 
     @classmethod
     def create_new(
@@ -41,7 +40,7 @@ class Trade:
         price: Decimal,
         trade_date: date,
         account_id: str = "default",
-        notes: Optional[str] = None,
+        notes: str | None = None,
     ) -> "Trade":
         """
         Factory method for creating a new Trade with a generated UUID.

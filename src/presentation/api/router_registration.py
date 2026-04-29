@@ -16,4 +16,5 @@ def register_api_routers(app: FastAPI) -> None:
     """
     app.include_router(trades_router)
     from src.presentation.api.routers.tags_router import tags_router
+
     app.include_router(tags_router)

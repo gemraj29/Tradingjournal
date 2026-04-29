@@ -3,7 +3,6 @@
 import pytest
 from httpx import AsyncClient
 
-
 # Minimal Fidelity CSV with the column names the parser expects
 FIDELITY_CSV = (
     "brokerage\n"

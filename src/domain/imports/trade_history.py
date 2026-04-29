@@ -1,6 +1,5 @@
 from datetime import datetime
 from decimal import Decimal
-from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -46,12 +45,12 @@ class TradeHistory(BaseModel):
     total_amount: Decimal = Field(
         ..., description="The total monetary amount of the trade."
     )
-    account_id: Optional[str] = Field(
+    account_id: str | None = Field(
         None, description="Identifier for the account where the trade occurred."
     )
-    description: Optional[str] = Field(
+    description: str | None = Field(
         None, description="A free-text description from the source."
     )
-    order_id: Optional[str] = Field(
+    order_id: str | None = Field(
         None, description="A unique identifier for the order, if available."
     )

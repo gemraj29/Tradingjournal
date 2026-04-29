@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Type
 
 from src.domain.dashboard.entities import DashboardSummary
 from src.domain.shared.result import Error, Result

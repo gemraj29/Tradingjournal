@@ -20,6 +20,7 @@ class ApplicationError(DomainError):
 # Concrete error types used by use cases
 # ------------------------------------------------------------------
 
+
 class InvalidCsvFormatError(ApplicationError):
     """Raised when a CSV file has missing or malformed headers."""
 

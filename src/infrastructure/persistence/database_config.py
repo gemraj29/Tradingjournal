@@ -10,6 +10,7 @@ import os
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
+
 # Removed declarative_base as Base is now defined in models.py
 
 
@@ -51,8 +52,7 @@ def get_database_url() -> str:
 
     # Using psycopg2 as the driver for PostgreSQL for synchronous operations
     return (
-        f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:"
-        f"{db_port}/{db_name}"
+        f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
     )
 
 

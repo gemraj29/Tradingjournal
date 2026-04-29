@@ -6,12 +6,15 @@ from .result import Err, Error, Ok, Result
 # AppError alias for backwards compatibility
 AppError = Error
 
+
 # Convenience helpers
 def is_ok(result: Result) -> bool:
     return result.is_ok()
 
+
 def is_err(result: Result) -> bool:
     return result.is_err()
+
 
 __all__ = [
     "AppError",

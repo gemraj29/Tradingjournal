@@ -26,4 +26,3 @@ class AssociateTagWithTradeUseCase(ABC):
                 or tag not found, or association already exists).
         """
         raise NotImplementedError
-

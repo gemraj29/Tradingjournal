@@ -21,4 +21,3 @@ class DashboardSummary:
     # monthly_pnl_breakdown: dict[str, Decimal]
     # weekly_pnl_breakdown: dict[str, Decimal]
     # daily_pnl_breakdown: dict[str, Decimal]
-
