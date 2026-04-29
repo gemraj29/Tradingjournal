@@ -12,10 +12,10 @@ class TradeTagModel(TimestampMixin, Base):
     __tablename__ = "trade_tags"
 
     trade_id = Column(
-        Integer, ForeignKey("trades.id", ondelete="CASCADE"), primary_key=True
+        String, ForeignKey("trades.id", ondelete="CASCADE"), primary_key=True
     )
     tag_id = Column(
-        Integer, ForeignKey("tags.id", ondelete="CASCADE"), primary_key=True
+        String, ForeignKey("tags.id", ondelete="CASCADE"), primary_key=True
     )
 
     trade = relationship("TradeModel", back_populates="trade_tags")

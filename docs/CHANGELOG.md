@@ -1,45 +1,74 @@
 # DesignATradingjournal — Changelog
 
-_Generated 2026-04-27_
+_Last updated: 2026-04-28_
 
-- `a68f3694` feat(register_api_routers): Register all API routers with the main FastAPI app.
-- `ee935241` feat(scaffold_tags_api_router): Create FastAPI router for tag operations.
-- `c06d1ed9` feat(scaffold_dashboard_api_router): Create FastAPI router for dashboard data.
-- `740f9b58` feat(scaffold_trades_api_router): Create FastAPI router for trade operations.
-- `77258175` feat(implement_tag_trade_use_case): Implement logic to tag a trade with existing or new tags.
-- `a4e02a96` feat(implement_get_dashboard_summary_use_case): Implement basic dashboard aggregation logic.
-- `ec439b9d` feat(implement_calculate_pnl_use_case): Implement basic PnL calculation for trades.
-- `92ed6ece` feat(implement_import_trades_use_case): Implement basic CSV import logic for trades.
-- `4a69ffa9` feat(scaffold_initial_migration): Generate and apply the first Alembic migration for core tables.
-- `9acf84af` feat(implement_postgres_account_repository): Implement `AccountRepository` using SQLAlchemy for PostgreSQL.
-- `49ab153e` feat(implement_postgres_trade_repository): Implement `TradeRepository` using SQLAlchemy for PostgreSQL.
-- `ea2c80cf` feat(scaffold_trade_tag_orm_model): Create SQLAlchemy ORM model for `TradeTag` association.
-- `ab41fa03` feat(scaffold_account_orm_model): Create SQLAlchemy ORM model for `Account` entity.
-- `94b23a28` feat(define_import_trades_use_case): Define interface for importing trade data from CSV.
-- `4315f89c` feat(define_tag_trade_use_case): Define interface for associating tags with trades.
-- `3fc0776e` feat(define_calculate_pnl_use_case): Define interface for calculating trade PnL.
-- `a284bd53` feat(implement_postgres_tag_repository): Implement `TagRepository` using SQLAlchemy for PostgreSQL.
-- `9e3f3c6c` feat(scaffold_tag_orm_model): Create SQLAlchemy ORM model for `Tag` entity.
-- `621901f4` feat(scaffold_trade_orm_model): Create SQLAlchemy ORM model for `Trade` entity.
-- `8c998751` feat(define_get_dashboard_summary_use_case): Define interface for retrieving dashboard summary data.
-- `a4b09334` feat(define_account_repository_interface): Define abstract interface for `Account` persistence operations.
-- `15ac3054` feat(define_tag_repository_interface): Define abstract interface for `Tag` persistence operations.
-- `e4fa8b4b` feat(define_trade_tag_domain_model): Define the `TradeTag` association for many-to-many relationships.
-- `7f4edcef` feat(define_trade_repository_interface): Define abstract interface for `Trade` persistence operations.
-- `cf2ef126` feat(scaffold_base_orm_model): Create a base SQLAlchemy ORM model with common features.
-- `1d2e4690` feat(scaffold_alembic_setup): Initialize Alembic for database migrations.
-- `d8e6941a` feat(scaffold_ci_pipeline): Create a basic GitHub Actions workflow for CI.
-- `aaabf0e6` feat(define_dashboard_summary_domain_model): Define `DashboardSummary` for aggregated dashboard views.
-- `d0806750` feat(define_trade_history_domain_model): Define `TradeHistory` for raw imported trade data.
-- `363ae3f0` feat(define_account_domain_model): Define the `Account` entity for tracking trading accounts.
-- `0e67b127` feat(define_tag_domain_model): Define the `Tag` entity for categorizing trades.
-- `aecea8f2` feat(define_trade_domain_model): Define the `Trade` entity with core attributes.
-- `c765c97e` feat(scaffold_db_config): Define database connection settings and SQLAlchemy engine.
-- `837bf0f2` feat(scaffold_precommit_hooks): Add `black`, `isort`, `flake8` to `pre-commit` configuration.
-- `7718ae79` feat(scaffold_pytest_setup): Configure `pytest` for unit and integration tests.
-- `fef756c9` feat(scaffold_error_handling): Define base `Result` type for consistent error handling.
-- `b6bc1ab7` feat(scaffold_logging_config): Implement structured logging configuration for the application.
-- `a871f8f6` feat(scaffold_fastapi_app): Create main FastAPI application instance and entry point.
-- `87941840` feat(scaffold_docker_infra): Set up `Dockerfile` for FastAPI and `docker-compose.yml` for app+db.
-- `f1520cb5` feat(scaffold_project_structure): Create base project directories and `pyproject.toml`.
-- `aad1f6d1` chore: initial CodeDNA scaffold
+---
+
+## [Unreleased] — 2026-04-28
+
+### Added
+- React 19 + Vite 5 frontend with glassmorphic light-theme UI
+- `DashboardPage` — equity curve, monthly bar chart, instrument mix pie, top symbols, 6 stat cards
+- `CalendarPage` — daily heatmap with intensity-scaled P&L cells; monthly summary table
+- `TradesPage` — sortable/filterable trade table with inline tag editor and click-to-edit notes
+- `OptionsPage` — options position tracker: weighted avg cost basis, FIFO P&L, roll chain detection
+- `ImportPage` — drag-and-drop Fidelity CSV upload with format guide and deduplication
+- `csvParser.js` — client-side Fidelity CSV parser; detects OPTION / STOCK / FUTURE by symbol pattern
+- `computePositions()` — FIFO lot matching, weighted average cost tracking, roll detection
+- `TradesContext` — global React state with `localStorage` persistence
+- Vite proxy config: `/api/*` → `localhost:8000`
+- `make dev-frontend` and `make dev-backend` Makefile targets
+
+---
+
+## [0.1.0] — 2026-04-27
+
+### Added (from git history)
+
+| Commit | Change |
+|--------|--------|
+| `3f8f60f` | fix: alembic async engine, SQLAlchemy URL driver, dashboard impl |
+| `0ee20c5` | fix: resolve all import errors and runtime issues |
+| `2729d36` | Updated usage guide and run.sh shell script |
+| `6c2d7e7` | Initial project commit |
+| `a68f369` | feat: register all API routers with main FastAPI app |
+| `ee93524` | feat: create FastAPI router for tag operations |
+| `c06d1ed` | feat: create FastAPI router for dashboard data |
+| `740f9b5` | feat: create FastAPI router for trade operations |
+| `7725817` | feat: implement logic to tag a trade with existing or new tags |
+| `a4e02a9` | feat: implement basic dashboard aggregation logic |
+| `ec439b9` | feat: implement basic PnL calculation for trades |
+| `92ed6ec` | feat: implement basic CSV import logic for trades |
+| `4a69ffa` | feat: generate and apply first Alembic migration for core tables |
+| `9acf84a` | feat: implement AccountRepository using SQLAlchemy for PostgreSQL |
+| `49ab153` | feat: implement TradeRepository using SQLAlchemy for PostgreSQL |
+| `ea2c80c` | feat: create SQLAlchemy ORM model for TradeTag association |
+| `ab41fa0` | feat: create SQLAlchemy ORM model for Account entity |
+| `94b23a2` | feat: define interface for importing trade data from CSV |
+| `4315f89` | feat: define interface for associating tags with trades |
+| `3fc0776` | feat: define interface for calculating trade PnL |
+| `a284bd5` | feat: implement TagRepository using SQLAlchemy for PostgreSQL |
+| `9e3f3c6` | feat: create SQLAlchemy ORM model for Tag entity |
+| `621901f` | feat: create SQLAlchemy ORM model for Trade entity |
+| `8c99875` | feat: define interface for retrieving dashboard summary data |
+| `a4b0933` | feat: define abstract interface for Account persistence |
+| `15ac305` | feat: define abstract interface for Tag persistence |
+| `e4fa8b4` | feat: define TradeTag association for many-to-many relationships |
+| `7f4edce` | feat: define abstract interface for Trade persistence |
+| `cf2ef12` | feat: create base SQLAlchemy ORM model with common features |
+| `1d2e469` | feat: initialize Alembic for database migrations |
+| `d8e6941` | feat: create GitHub Actions workflow for CI |
+| `aaabf0e` | feat: define DashboardSummary for aggregated dashboard views |
+| `d080675` | feat: define TradeHistory for raw imported trade data |
+| `363ae3f` | feat: define Account entity for tracking trading accounts |
+| `0e67b12` | feat: define Tag entity for categorizing trades |
+| `aecea8f` | feat: define Trade entity with core attributes |
+| `c765c97` | feat: define database connection settings and SQLAlchemy engine |
+| `837bf0f` | feat: add black, isort, flake8 to pre-commit configuration |
+| `7718ae7` | feat: configure pytest for unit and integration tests |
+| `fef756c` | feat: define base Result type for consistent error handling |
+| `b6bc1ab` | feat: implement structured logging configuration |
+| `a871f8f` | feat: create main FastAPI application instance and entry point |
+| `8794184` | feat: set up Dockerfile and docker-compose.yml for app + DB |
+| `f1520cb` | feat: create base project directories and pyproject.toml |
+| `aad1f6d` | chore: initial CodeDNA scaffold |

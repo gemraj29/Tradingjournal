@@ -30,3 +30,10 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Vite temp files
+frontend/vite.config.js.timestamp-*
+
+# Scratch / test files
+scratch_*.py
+test_*.py

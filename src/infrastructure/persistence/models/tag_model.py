@@ -11,7 +11,7 @@ class TagModel(TimestampMixin, Base):
 
     __tablename__ = "tags"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
     name = Column(String, unique=True, index=True, nullable=False)
 
     trade_tags = relationship(

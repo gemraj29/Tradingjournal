@@ -11,7 +11,7 @@ class AccountModel(TimestampMixin, Base):
 
     __tablename__ = "accounts"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
     name = Column(String, unique=True, index=True, nullable=False)
 
     trades = relationship(

@@ -2,53 +2,63 @@
 
 ```mermaid
 graph LR
-  _[".\n. module"]
-  presentation["presentation\npresentation module"]
-  infrastructure_logging["infrastructure.logging\nProvides structured JSON loggi"]
-  domain_shared["domain.shared\ndomain.shared module"]
-  infrastructure_persistence["infrastructure.persistence\ninfrastructure.persistence mod"]
-  domain_trades["domain.trades\ndomain.trades module"]
-  domain_tags["domain.tags\ndomain.tags module"]
-  domain_accounts["domain.accounts\ndomain.accounts module"]
-  domain_imports["domain.imports\ndomain.imports module"]
-  domain_dashboard["domain.dashboard\ndomain.dashboard module"]
-  _github_workflows[".github.workflows\n.github.workflows module"]
-  infrastructure_persistence_models["infrastructure.persistence.models\ninfrastructure.persistence.mod"]
-  application_repositories["application.repositories\napplication.repositories modul"]
-  application_use_cases["application.use_cases\napplication.use_cases module"]
-  infrastructure_persistence_postgres["infrastructure.persistence.postgres\ninfrastructure.persistence.pos"]
-  infrastructure_persistence_migrations["infrastructure.persistence.migrations\ninfrastructure.persistence.mig"]
-  application_use_cases_imports["application.use_cases.imports\napplication.use_cases.imports "]
-  application_use_cases_trades["application.use_cases.trades\napplication.use_cases.trades m"]
-  application_use_cases_dashboard["application.use_cases.dashboard\napplication.use_cases.dashboar"]
-  application_use_cases_tags["application.use_cases.tags\napplication.use_cases.tags mod"]
-  presentation_api_routers["presentation.api.routers\npresentation.api.routers modul"]
-  presentation_api["presentation.api\npresentation.api module"]
+    subgraph Domain["Domain (no external deps)"]
+        D_Trade["domain/trades\nTrade · TradeType"]
+        D_Tag["domain/tags\nTag"]
+        D_Acc["domain/accounts\nAccount"]
+        D_Dash["domain/dashboard\nDashboardSummary"]
+        D_Imp["domain/imports\nTradeHistory"]
+        D_Shared["domain/shared\nResult · errors"]
+    end
+
+    subgraph Application["Application (depends on domain only)"]
+        A_TradeRepo["application/repositories\nTradeRepository (ABC)"]
+        A_TagRepo["application/repositories\nTagRepository (ABC)"]
+        A_AccRepo["application/repositories\nAccountRepository (ABC)"]
+        UC_Import["use_cases/import_fidelity_trades"]
+        UC_PnL["use_cases/calculate_pnl"]
+        UC_Dash["use_cases/get_dashboard_summary"]
+        UC_Tag["use_cases/associate_tag_with_trade"]
+    end
+
+    subgraph Infra["Infrastructure (depends on application + domain)"]
+        ORM_Trade["models/trade_model"]
+        ORM_Tag["models/tag_model"]
+        ORM_Acc["models/account_model"]
+        ORM_TT["models/trade_tag_model"]
+        Repo_Mem["repositories/in_memory_trade_repository"]
+        Migrations["migrations/initial_migration"]
+    end
+
+    subgraph Presentation["Presentation (depends on application)"]
+        R_Trades["/trades router"]
+        R_Tags["/tags router"]
+        R_Dash["/dashboard router"]
+    end
+
+    D_Trade --> A_TradeRepo
+    D_Tag --> A_TagRepo
+    D_Acc --> A_AccRepo
+    D_Shared --> UC_Import
+    D_Shared --> UC_PnL
+    D_Trade --> UC_Import
+    D_Trade --> UC_PnL
+    D_Dash --> UC_Dash
+    A_TradeRepo --> UC_Import
+    A_TradeRepo --> UC_PnL
+    A_TradeRepo --> UC_Dash
+    A_TradeRepo --> UC_Tag
+    A_TagRepo --> UC_Tag
+    D_Trade --> ORM_Trade
+    D_Tag --> ORM_Tag
+    D_Acc --> ORM_Acc
+    A_TradeRepo --> Repo_Mem
+    ORM_Trade --> Migrations
+    ORM_Tag --> Migrations
+    ORM_Acc --> Migrations
+    ORM_TT --> Migrations
+    UC_Import --> R_Trades
+    UC_PnL --> R_Trades
+    UC_Dash --> R_Dash
+    UC_Tag --> R_Tags
 ```
-
-## Module Inventory
-
-| Module | Purpose | Patterns |
-|--------|---------|----------|
-| `.` | . module |  |
-| `presentation` | presentation module |  |
-| `infrastructure.logging` | Provides structured JSON logging configuration and a custom JSON formatter. |  |
-| `domain.shared` | domain.shared module |  |
-| `infrastructure.persistence` | infrastructure.persistence module |  |
-| `domain.trades` | domain.trades module |  |
-| `domain.tags` | domain.tags module |  |
-| `domain.accounts` | domain.accounts module |  |
-| `domain.imports` | domain.imports module |  |
-| `domain.dashboard` | domain.dashboard module |  |
-| `.github.workflows` | .github.workflows module |  |
-| `infrastructure.persistence.models` | infrastructure.persistence.models module |  |
-| `application.repositories` | application.repositories module |  |
-| `application.use_cases` | application.use_cases module |  |
-| `infrastructure.persistence.postgres` | infrastructure.persistence.postgres module |  |
-| `infrastructure.persistence.migrations` | infrastructure.persistence.migrations module |  |
-| `application.use_cases.imports` | application.use_cases.imports module |  |
-| `application.use_cases.trades` | application.use_cases.trades module |  |
-| `application.use_cases.dashboard` | application.use_cases.dashboard module |  |
-| `application.use_cases.tags` | application.use_cases.tags module |  |
-| `presentation.api.routers` | presentation.api.routers module |  |
-| `presentation.api` | presentation.api module |  |

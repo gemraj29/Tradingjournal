@@ -12,7 +12,7 @@ class TradeModel(TimestampMixin, Base):
 
     __tablename__ = "trades"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
     symbol = Column(String, index=True, nullable=False)
     quantity = Column(Float, nullable=False)
     price = Column(Float, nullable=False)
@@ -20,7 +20,7 @@ class TradeModel(TimestampMixin, Base):
     description = Column(String, nullable=True)  # e.g., "Bought 100 shares"
 
     account_id = Column(
-        Integer, ForeignKey("accounts.id", ondelete="CASCADE"), nullable=False
+        String, ForeignKey("accounts.id", ondelete="CASCADE"), nullable=False
     )
     account = relationship("AccountModel", back_populates="trades")
 
