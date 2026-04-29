@@ -34,6 +34,6 @@ Thumbs.db
 # Vite temp files
 frontend/vite.config.js.timestamp-*
 
-# Scratch / test files
+# Scratch / one-off scripts at repo root only (NOT tests/ directory)
 scratch_*.py
-test_*.py
+/test_*.py
